@@ -1,8 +1,9 @@
 name: Claude Assistant
 
 on:
+  workflow_dispatch:   # allows manual trigger from Actions tab
   issue_comment:
-    types: [created]
+    types: [created]  # triggers when you comment on an issue
   pull_request:
     types: [opened, synchronize]
 
@@ -14,20 +15,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ Project Setup (CUSTOMIZED FOR YOU)
-      - name: Project Setup
-        run: |
-          npm install
+      # ✅ Project Setup (minimal and safe for your project)
+      - name: Install dependencies
+        run: npm install
 
       # ✅ Run Claude
       - name: Run Claude
         uses: anthropic/claude-code-action@latest
         with:
           custom_instructions: |
-            This is a Node.js Express project.
+            This is a simple Node.js Express project.
             The app runs using `node index.js`.
-            There is currently no database.
-            The server is NOT running beforehand.
+            There is no database.
+            The server is not running beforehand.
             Focus on adding simple APIs and clean structure.
 
           allowed_tools: "Bash(npm:*),Bash(node:*)"
