@@ -1,0 +1,29 @@
+name: Claude Assistant
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  claude:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Claude
+        uses: anthropic/claude-code-action@latest
+        with:
+          custom_instructions: |
+            This is a simple Node.js Express project.
+            The app runs with `node index.js`.
+            There is no database.
+            Keep code simple and clean.
+
+          allowed_tools: "Bash(npm:*),Bash(node:*)"

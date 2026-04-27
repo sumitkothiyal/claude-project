@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma *)",
+      "Bash(npm run *)",
+      "PowerShell(Set-Location \"C:\\\\Projects\\\\Claude Project\\\\uigen\"; $env:NODE_OPTIONS = '--require ./node-compat.cjs'; Start-Process -NoNewWindow -FilePath \"npx\" -ArgumentList \"next\", \"dev\", \"--turbopack\" -RedirectStandardOutput \"logs.txt\" -RedirectStandardError \"logs_err.txt\"; Start-Sleep -Seconds 10; Get-Content logs.txt -ErrorAction SilentlyContinue; Get-Content logs_err.txt -ErrorAction SilentlyContinue)",
+      "PowerShell(Set-Location \"C:\\\\Projects\\\\Claude Project\\\\uigen\"; $env:NODE_OPTIONS = '--require ./node-compat.cjs'; Start-Process -NoNewWindow -FilePath \"npx.cmd\" -ArgumentList \"next\", \"dev\", \"--turbopack\" -RedirectStandardOutput \"logs.txt\" -RedirectStandardError \"logs_err.txt\"; Start-Sleep -Seconds 12; Get-Content logs.txt -ErrorAction SilentlyContinue; Get-Content logs_err.txt -ErrorAction SilentlyContinue)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl *)"
+    ]
+  }
+}
