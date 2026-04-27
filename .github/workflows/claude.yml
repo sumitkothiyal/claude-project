@@ -21,7 +21,7 @@ jobs:
 
       # ✅ Run Claude
       - name: Run Claude
-        uses: anthropic/claude-code-action@latest
+        uses: anthropic/claude-code-action@main
         with:
           custom_instructions: |
             This is a simple Node.js Express project.
